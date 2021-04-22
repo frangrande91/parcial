@@ -19,7 +19,12 @@ public class Currency {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private TipoCurrency tipoCurrency;
+    private TypeCurrency typeCurrency;
 
-    private Double monto;
+    private Integer amount;
+
+
+    public Integer getAmountPesos(){
+        return (this.amount * this.getTypeCurrency().getConversion());
+    }
 }

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/news
+    url: jdbc:mysql://localhost:3306/futbolManager
     username: root
     password:
   jpa:

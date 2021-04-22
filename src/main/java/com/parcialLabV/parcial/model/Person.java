@@ -7,22 +7,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.AccessType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "tipoPersona", visible = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "typePerson", visible = true)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Representante.class, name = "REPRESENTANTE"),
-        @JsonSubTypes.Type(value = Jugador.class, name = "JUGADOR")
+        @JsonSubTypes.Type(value = Manager.class, name = "MANAGER"),
+        @JsonSubTypes.Type(value = Player.class, name = "PLAYER")
 })
 @Entity
-public abstract class Persona {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+
+
+public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
@@ -33,8 +34,10 @@ public abstract class Persona {
     @NotNull
     protected String lastName;
 
+
+
     @AccessType(AccessType.Type.PROPERTY)
-    public abstract TipoPersona tipoPersona();
+    public abstract TypePerson typePerson();
 
 
 
