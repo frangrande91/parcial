@@ -23,8 +23,6 @@ public class Currency {
 
     private Integer amount;
 
+    private Double conversion;
 
-    public Integer getAmountPesos(){
-        return (this.amount * this.getTypeCurrency().getConversion());
-    }
 }

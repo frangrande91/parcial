@@ -1,6 +1,7 @@
 package com.parcialLabV.parcial.controller;
 
 import com.parcialLabV.parcial.model.Currency;
+import com.parcialLabV.parcial.model.PostResponse;
 import com.parcialLabV.parcial.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +15,19 @@ public class CurrencyController {
     @Autowired
     private CurrencyService currencyService;
 
+
+    //Return usando una clase propia
+    @PostMapping("/")
+    public PostResponse addCurrency(@RequestBody Currency currency){
+        return currencyService.addCurrency(currency);
+    }
+
+    /*
     @PostMapping("/")
     public void addCurrency(@RequestBody Currency currency){
         currencyService.addCurrency(currency);
     }
+     */
 
     @GetMapping
     public List<Currency> getCurrencies(){

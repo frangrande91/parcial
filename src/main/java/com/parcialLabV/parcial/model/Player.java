@@ -31,4 +31,6 @@ public class Player extends Person {
     public TypePerson typePerson() {
         return TypePerson.PLAYER;
     }
+
+
 }

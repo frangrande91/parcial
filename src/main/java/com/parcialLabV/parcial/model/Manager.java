@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Manager extends Person {
+public class Manager extends Person{
 
     public static final int BILL = 100;
     public static final int WEIGHT_BILL = 1;
@@ -29,11 +29,13 @@ public class Manager extends Person {
 
     private Integer totalAmount;
 
+
+
+
     @Override
     public TypePerson typePerson() {
         return TypePerson.MANAGER;
     }
-
 
     public Integer getTotalAmount(){
         return players.stream()

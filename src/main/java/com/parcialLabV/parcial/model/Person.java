@@ -22,8 +22,7 @@ import javax.validation.constraints.NotNull;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 
 
-
-public abstract class Person {
+public abstract  class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
@@ -34,11 +33,9 @@ public abstract class Person {
     @NotNull
     protected String lastName;
 
-
+    protected String address;
 
     @AccessType(AccessType.Type.PROPERTY)
     public abstract TypePerson typePerson();
-
-
 
 }
